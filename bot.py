@@ -1,4 +1,4 @@
-# import os
+import os
 import sys
 
 import discord
@@ -30,16 +30,15 @@ def main():
     # )
 
     bot = commands.Bot(
-        commands.when_mentioned_or(""),
+        commands.when_mentioned_or("%"),
         intents=intents,
         # activity=activity,
     )
 
     # Get the modules of all cogs whose directory structure is cogs/<module_name>/cog.py
-    # Not currently using cogs
-    # for folder in os.listdir("cogs"):
-    #     if os.path.exists(os.path.join("cogs", folder, "cog.py")):
-    #         bot.load_extension(f"cogs.{folder}.cog")
+    for folder in os.listdir("cogs"):
+        if os.path.exists(os.path.join("cogs", folder, "cog.py")):
+            bot.load_extension(f"cogs.{folder}.cog")
 
     @bot.event
     async def on_ready():
@@ -51,8 +50,9 @@ def main():
 
     @bot.event
     async def on_message(message):
+        """Uploads message from DMs to the bot and mentions to Napkin"""
         await bot.process_commands(message)
-        # for DMS
+        # for DMs
         if not message.guild:
             url = "https://app.napkin.one/api/createThought"
             req = {
