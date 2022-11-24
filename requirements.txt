@@ -1,4 +1,4 @@
 discord==2.1.0
 python-dotenv==0.19.2
 loguru==0.5.3
-requests
+requests==2.25.1
