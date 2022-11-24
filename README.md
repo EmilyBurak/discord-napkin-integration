@@ -33,5 +33,6 @@ DM the bot your thought! It'll post to Napkin with magic tags. The API is only m
 
 - Fix discord.ext.commands.errors.CommandNotFound: Command `first argument of direct message` is not found / Ignoring exception in command None
 - Add command like !napkin {thought} and replying to messages with !napkin collect to bring thoughts up to Napkin
+- Implement !napkinhelp
 - Pin requests version
 - Tidy up everything
