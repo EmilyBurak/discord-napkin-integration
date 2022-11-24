@@ -13,7 +13,7 @@ import requests
 def main():
 
     start_time = perf_counter()
-    logger.add(sys.stderr, level="DEBUG")
+    logger.add(sys.stderr, level="INFO")
     # allows privledged intents for monitoring members joining, roles editing, and role assignments
     # these need to be enabled in the developer portal as well
     # not sure which of these are needed
