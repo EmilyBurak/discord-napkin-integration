@@ -16,6 +16,7 @@ def main():
     logger.add(sys.stderr, level="DEBUG")
     # allows privledged intents for monitoring members joining, roles editing, and role assignments
     # these need to be enabled in the developer portal as well
+    # not sure which of these are needed
     intents = discord.Intents.default()
 
     intents.guilds = True
@@ -24,14 +25,14 @@ def main():
 
     intents.presences = True
 
-    activity = discord.Activity(
-        type=discord.ActivityType.listening, name=f"!napkinhelp"
-    )
+    # activity = discord.Activity(
+    #     type=discord.ActivityType.listening, name=f"!napkinhelp"
+    # )
 
     bot = commands.Bot(
         commands.when_mentioned_or(""),
         intents=intents,
-        activity=activity,
+        # activity=activity,
     )
 
     # Get the modules of all cogs whose directory structure is cogs/<module_name>/cog.py
@@ -50,7 +51,6 @@ def main():
 
     @bot.event
     async def on_message(message):
-        # you'll need this because you're also using cmd decorators
         await bot.process_commands(message)
         if not message.guild:
             url = "https://app.napkin.one/api/createThought"
