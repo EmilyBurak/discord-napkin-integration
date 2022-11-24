@@ -52,6 +52,7 @@ def main():
     @bot.event
     async def on_message(message):
         await bot.process_commands(message)
+        # for DMS
         if not message.guild:
             url = "https://app.napkin.one/api/createThought"
             req = {
@@ -61,7 +62,17 @@ def main():
             }
 
             requests.post(url, json=req)
-
+        # for mentions in messages
+        elif bot.user.mentioned_in(message):
+            # removes mention of bot in the message before sending to Napkin
+            message.content = message.content.replace(f"<@{bot.user.id}>", "")
+            url = "https://app.napkin.one/api/createThought"
+            req = {
+                "email": config.EMAIL,
+                "token": config.NAPKIN_TOKEN,
+                "thought": message.content,
+            }
+            requests.post(url, json=req)
         else:
             pass
 
