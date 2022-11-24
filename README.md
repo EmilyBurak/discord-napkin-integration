@@ -27,7 +27,11 @@ for now.
 
 ## Usage
 
-DM the bot your thought! It'll post to Napkin with magic tags. The API is only meant for single thoughts, so don't spam it or you'll hit timeouts.
+Ways to use:
+
+- DM the bot your thought! It'll post to your Napkin with magic tags. The API is only meant for single thoughts, so don't spam it or you'll hit timeouts.
+- @ mention the bot and it'll post to your Napkin with magic tags the rest of your message.
+- Reply to a message with %napkinreply and it'll post the message being replied to up to your Napkin.
 
 ## Coming soon
 
@@ -35,3 +39,4 @@ DM the bot your thought! It'll post to Napkin with magic tags. The API is only m
 - Implement !napkinhelp
 - Pin requests version
 - Tidy up everything
+- One day, implement multiple users?
