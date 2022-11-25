@@ -1,8 +1,8 @@
-from discord.ext import commands
 import config
 import requests
 from discord import Embed
 import discord
+from discord.ext import commands
 
 
 class ReplyUpload(commands.Cog, name="napkinreply"):
