@@ -26,15 +26,7 @@ def main():
 
     intents.presences = True
 
-    # activity = discord.Activity(
-    #     type=discord.ActivityType.listening, name=f"!napkinhelp"
-    # )
-
-    bot = commands.Bot(
-        commands.when_mentioned_or("%"),
-        intents=intents,
-        # activity=activity,
-    )
+    bot = commands.Bot(commands.when_mentioned_or("%"), intents=intents)
 
     # Get the modules of all cogs whose directory structure is cogs/<module_name>/cog.py
     for folder in os.listdir("cogs"):
