@@ -1,6 +1,8 @@
-from nextcord.ext import commands
+from discord.ext import commands
 import config
 import requests
+from discord import Embed
+import discord
 
 
 class ReplyUpload(commands.Cog, name="napkinreply"):
@@ -32,6 +34,15 @@ class ReplyUpload(commands.Cog, name="napkinreply"):
             }
 
             requests.post(url, json=req)
+
+            # create embed and send new thought via DM to user
+            embed = Embed(
+                colour=discord.Colour.from_rgb(225, 198, 153),
+                title=f"Napkin Thought Added:",
+            )
+            embed.add_field(name=chr(173), value=f"{replied_message.content}")
+
+            await ctx.author.send(embed=embed)
         else:
             pass
 
