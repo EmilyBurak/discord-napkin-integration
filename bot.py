@@ -63,6 +63,8 @@ def main():
             }
 
             requests.post(url, json=req)
+
+            await message.author.send("```Thought uploaded.```")
         # for mentions in messages
         elif bot.user.mentioned_in(message):
             # removes mention of bot in the message before sending to Napkin
