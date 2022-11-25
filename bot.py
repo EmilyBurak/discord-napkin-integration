@@ -3,6 +3,7 @@ import sys
 
 import discord
 from discord.ext import commands
+from discord import Embed
 
 import config
 from loguru import logger
@@ -73,6 +74,16 @@ def main():
                 "thought": message.content,
             }
             requests.post(url, json=req)
+
+            # create embed and send new thought via DM to user
+            embed = Embed(
+                colour=discord.Colour.from_rgb(225, 198, 153),
+                title=f"Napkin Thought Added:",
+            )
+            embed.add_field(name=chr(173), value=f"{message.content}")
+
+            await message.author.send(embed=embed)
+
         else:
             pass
 
